@@ -1,0 +1,135 @@
+% !TeX root = ../main.tex
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+}
+
+\chapter{方法論}\label{ux65b9ux6cd5ux8ad6}
+
+本研究透過使用MeNGo系統在2023年11月的所有使用者之刷卡資料進行使用者的特徵分析，共計取得\ldots.。
+
+\section{主成分分析(PCA)}\label{ux4e3bux6210ux5206ux5206ux6790pca}
+
+\section{K-means++}\label{k-means}
+
+\section{特徵工程}\label{ux7279ux5fb5ux5de5ux7a0b}
+
+\subsection{基本旅運統計行為特徵}\label{ux57faux672cux65c5ux904bux7d71ux8a08ux884cux70baux7279ux5fb5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  總使用天數：travel\_days
+\item
+  總使用次數：total\_trips
+\item
+  平均每日使用次數：avg\_trips\_per\_day
+\end{enumerate}
+
+\subsection{對稱行程特徵}\label{ux5c0dux7a31ux884cux7a0bux7279ux5fb5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  對稱行程天數：symmetrical\_days
+\item
+  對稱行程比例：symmetry\_ratio
+\end{enumerate}
+
+\subsection{使用時間特徵}\label{ux4f7fux7528ux6642ux9593ux7279ux5fb5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  平均旅行時間：avg\_travel\_time
+\item
+  旅行時間標準差：std\_travel\_time
+\item
+  工作日旅次比率：weekday\_trip\_ratio
+\item
+  假日旅次比率：weekend\_trip\_ratio
+\item
+  尖峰時間使用比率：peak\_hour\_ratio
+\end{enumerate}
+
+\subsection{距離特徵}\label{ux8dddux96e2ux7279ux5fb5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  總搭乘距離：total\_distance
+\item
+  平均搭乘距離：avg\_distance
+\item
+  最大搭乘距離：max\_distance
+\item
+  最小搭乘距離：min\_distance
+\item
+  搭乘距離標準差：std\_distance
+\end{enumerate}
+
+\subsection{時間熵特徵}\label{ux6642ux9593ux71b5ux7279ux5fb5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  一天中第一次行程的上車時間熵：first\_boarding\_entropy
+\item
+  一天中最後一次行程的上車時間熵：last\_boarding\_entropy
+\item
+  平均的上車時間熵：avg\_boarding\_entropy
+\end{enumerate}
+
+\subsection{空間熵特徵}\label{ux7a7aux9593ux71b5ux7279ux5fb5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  一天中第一次行程的上車地點熵：first\_boarding\_place\_entropy
+\item
+  一天中第一次行程的下車地點熵：first\_alighting\_place\_entropy
+\item
+  一天中最後一次行程的上車地點熵：last\_boarding\_place\_entropy
+\item
+  一天中最後一次行程的下車地點熵：last\_alighting\_place\_entropy
+\end{enumerate}
+
+\subsection{轉乘特徵}\label{ux8f49ux4e58ux7279ux5fb5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  總轉乘次數：total\_transfer
+\item
+  公車轉捷運次數：bus\_to\_mrt
+\item
+  捷運轉公車次數：mrt\_to\_bus
+\item
+  工作日轉乘次數：weekday\_transfer
+\item
+  假日轉乘次數：weekend\_transfer
+\item
+  平均轉乘次數：avg\_transfer
+\end{enumerate}
+
+\subsection{活動站點特徵}\label{ux6d3bux52d5ux7ad9ux9edeux7279ux5fb5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  一天中第一次行程的上車地點個數：unique\_first\_boarding\_place
+\item
+  一天中第一次行程的下車地點個數：unique\_first\_alighting\_place
+\item
+  一天中最後一次行程的上車地點個數：unique\_last\_boarding\_place
+\item
+  一天中最後一次行程的下車地點個數：unique\_last\_alighting\_place
+\end{enumerate}
