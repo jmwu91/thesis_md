@@ -106,8 +106,7 @@ Mobility as a Service (MaaS) is a recent innovative transport concept, anticipat
 
 ---
 
-## Individuals among Commuters: {{Building}} Personalised Transport Information Services from Fare Collection Systems},
-  shorttitle = {Individuals among Commuters (2013)
+## Individuals among Commuters : Building Personalised Transport Information Services from Fare Collection Systems, shorttitle Individuals among Commuters (2013)
 **作者**: Lathia, Neal and Smith, Chris and Froehlich, Jon and Capra, Licia
 
 **摘要**:
