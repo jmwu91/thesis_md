@@ -1,16 +1,16 @@
 # 文獻回顧
 
-## {MaaS}} Potential Users' Profiles Characterization with a {{K-means}} Clustering Algorithm (2023)
+## MaaS Potential Users' Profiles Characterization with a K-means Clustering Algorithm (2023)
 **作者**: Aguiar, Iago and Monzon, Andres and {Lopez-Carreiro}, Iria
 
 **摘要**:
 
-Mobility as a Service (MaaS) is building its way into cities all across the globe to change how their residents move around today. Given the user-centric nature of this model, it is essential to understand individuals' needs and expectations for its successful deployment. The paper explores different potential users' profiles in the metropolitan area of Madrid (Spain) by applying a machine learning clustering algorithm. Our analysis reveals three clusters in terms of individuals' willingness to adopt MaaS: the ``MaaS-enthusiasts'', who are significantly open to embrace the new mobility solution; the ``innovation doubtful users'', who are likely to adopt MaaS but need more persuasive incentives; and the ``anti-new technologies'', a group averse to innovation. Tailored strategies are defined to foster MaaS within these three groups, with the goal of encouraging more sustainable behaviours. Our results demonstrate how machine learning can be helpful to transport planners and policymakers for getting insightful information from large datasets.
+Mobility as a Service (MaaS) is building its way into cities all across the globe to change how their residents move around today. Given the user-centric nature of this model, it is essential to understand individuals' needs and expectations for its successful deployment. The paper explores different potential users' profiles in the metropolitan area of Madrid (Spain) by applying a machine learning clustering algorithm. Our analysis reveals three clusters in terms of individuals' willingness to adopt MaaS: the MaaS-enthusiasts'', who are significantly open to embrace the new mobility solution; the innovation doubtful users'', who are likely to adopt MaaS but need more persuasive incentives; and the anti-new technologies'', a group averse to innovation. Tailored strategies are defined to foster MaaS within these three groups, with the goal of encouraging more sustainable behaviours. Our results demonstrate how machine learning can be helpful to transport planners and policymakers for getting insightful information from large datasets.
 
 ---
 
-## Drivers and Barriers in Adopting {{Mobility}} as a {{Service}} ({{MaaS}}) -- {{A}} Latent Class Cluster Analysis of Attitudes (2020)
-**作者**: {Alonso-Gonz{\'a}lez}, Mar{\'i}a J. and {Hoogendoorn-Lanser}, Sascha and {van Oort}, Niels and Cats, Oded and Hoogendoorn, Serge
+## Drivers and Barriers in Adopting Mobility as a Service MaaS -- A Latent Class Cluster Analysis of Attitudes (2020)
+**作者**: Alonso-Gonz'alez, Mar'ia J. and {Hoogendoorn-Lanser}, Sascha and {van Oort}, Niels and Cats, Oded and Hoogendoorn, Serge
 
 **摘要**:
 
@@ -28,7 +28,7 @@ Mobility as a Service (MaaS) is a novel brand of transport that promises to repl
 
 ---
 
-## Application of Crowdsourced Data to Infer User Satisfaction with {{Mobility}} as a {{Service}} ({{MaaS}}) (2022)
+## Application of Crowdsourced Data to Infer User Satisfaction with Mobility as a Service MaaS (2022)
 **作者**: Aman, Javad Jomehpour Chahar and {Smith-Colin}, Janille
 
 **摘要**:
@@ -183,9 +183,8 @@ The concept of mobility as a service (MaaS) has been proposed as a feasible way 
 
 ---
 
-## Mobility-as-a-{{Service}} ({{MaaS}}): {{A}} Latent Class Cluster Analysis to Identify {{Dutch}} Vehicle Owners' Use Intention},
-  shorttitle = {Mobility-as-a-{{Service}} ({{MaaS}}) (2023)
-**作者**: {van 't Veer}, Renske and Annema, Jan Anne and Araghi, Yashar and {Homem de Almeida Correia}, Gon{\c c}alo and {van Wee}, Bert
+## Mobility-as-a-Service (MaaS): A Latent Class Cluster Analysis to Identify Dutch Vehicle Owners' Use Intention, shorttitle = Mobility-as-a-Service (MaaS) (2023)
+**作者**: van 't Veer, Renske and Annema, Jan Anne and Araghi, Yashar and {Homem de Almeida Correia}, Gon{\c c}alo and {van Wee}, Bert
 
 **摘要**:
 

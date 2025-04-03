@@ -31,15 +31,30 @@
 5. 搭乘距離標準差：std_distance
 
 ### 時間熵特徵
-1. 一天中第一次行程的上車時間熵：first_boarding_entropy
-2. 一天中最後一次行程的上車時間熵：last_boarding_entropy
-3. 平均的上車時間熵：avg_boarding_entropy
+- 首趟行程的上車時間熵：first_boarding_entropy
+	- $E_{\text{time, first}} = \frac{ -\sum_{i=0}^{23} P_{\text{first}, i} \log_2(P_{\text{first}, i}) }{ \log_2(24) }$
+- 末趟行程的上車時間熵：last_boarding_entropy
+	- $E_{\text{time, last}} = \frac{ -\sum_{i=0}^{23} P_{\text{last}, i} \log_2(P_{\text{last}, i}) }{ \log_2(24) }$
+- 平均的上車時間熵：avg_boarding_entropy
+	- $E_{\text{time, avg}} = \frac{1}{2} \left( E_{\text{time, first}} + E_{\text{time, last}} \right)$
+		- $P_{first,i​}$：每天首趟出發時間落在第 $i$ 個小時（0到23）的機率。例如，若某人每天早上6點出發的機率是0.8，則 $P_{first,6}=0.8$。
+		- $P_{last,i​}$：每天末趟出發時間落在第 $i$ 個小時（0到23）的機率。例如，若某人每天晚上10點出發的機率是0.7，則 $P_{last,22}=0.7$。
+		- $log_2​(24)$：正規化因子，用來將熵的值標準化到0到1的範圍內，因為一天有24個小時，$log_2​(24)$ 是最大的可能熵值。
+
 
 ### 空間熵特徵
-1. 一天中第一次行程的上車地點熵：first_boarding_place_entropy
-2. 一天中第一次行程的下車地點熵：first_alighting_place_entropy
-3. 一天中最後一次行程的上車地點熵：last_boarding_place_entropy
-4. 一天中最後一次行程的下車地點熵：last_alighting_place_entropy
+- 首趟行程的上車地點熵：first_boarding_place_entropy
+- 首趟行程的下車地點熵：first_alighting_place_entropy
+- 末趟行程的上車地點熵：last_boarding_place_entropy
+- 末趟行程的下車地點熵：last_alighting_place_entropy
+
+
+$$E_{\text{place}} = 
+\begin{cases} 
+0 & \text{if } n_{\text{unique}} \leq 1 \\ 
+\frac{ -\sum_{a=1}^{n_{\text{unique}}} P_a \log_2(P_a) }{ \log_2(n_{\text{unique}}) } & \text{if } n_{\text{unique}} > 1 
+\end{cases}$$
+
 
 ### 轉乘特徵
 1. 總轉乘次數：total_transfer
