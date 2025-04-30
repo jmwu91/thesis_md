@@ -6,15 +6,36 @@
 
 \chapter{方法論}\label{ux65b9ux6cd5ux8ad6}
 
-本研究透過使用MeNGo系統在2023年11月的所有使用者之刷卡資料進行使用者的特徵分析，共計取得\ldots.。
+\section{方法論架構}\label{ux65b9ux6cd5ux8ad6ux67b6ux69cb}
 
-\section{主成分分析(PCA)}\label{ux4e3bux6210ux5206ux5206ux6790pca}
+畫出圖
 
-\section{K-means++}\label{k-means}
+\section{資料處理階段}\label{ux8cc7ux6599ux8655ux7406ux968eux6bb5}
 
-\section{特徵工程}\label{ux7279ux5fb5ux5de5ux7a0b}
+\subsection{原始資料集}\label{ux539fux59cbux8cc7ux6599ux96c6}
 
-\subsection{基本旅運統計行為特徵}\label{ux57faux672cux65c5ux904bux7d71ux8a08ux884cux70baux7279ux5fb5}
+\subsubsection{資料清洗}\label{ux8cc7ux6599ux6e05ux6d17}
+
+\paragraph{僅留下需要的資料(公車、捷運)}\label{ux50c5ux7559ux4e0bux9700ux8981ux7684ux8cc7ux6599ux516cux8ecaux6377ux904b}
+
+本研究所取得的資料集包含了目前於MeNGo系統中的運輸業者\ldots.
+
+\paragraph{補齊捷運票證資料之旅客上車時間}\label{ux88dcux9f4aux6377ux904bux7968ux8b49ux8cc7ux6599ux4e4bux65c5ux5ba2ux4e0aux8ecaux6642ux9593}
+
+本研究所使用的MeNGo使用者票證資料為高屏澎運輸研究發展中心提供，在初步資料處理階段，發現該資料集在欄位上有缺漏及紀錄資訊不完整的情形，主要缺漏在高雄捷運之刷卡資料上僅記錄該使用者當次刷卡之下車時間，其資料狀態紀錄為''定期票下車''(這裡應該可以補圖去說明他是怎樣缺漏的。)，因此為取得捷運使用者之上車時間，本研究透過TDX平台上所取得之'\,`高雄捷運站間行駛時間'\,'，作為推估捷運使用者上車時間之基礎，用以補足捷運使用者在資料欄位中所缺少的上車時間資料。
+
+具體流程\ldots.
+
+\paragraph{新增使用者特徵描述欄位(旅程時間、星期幾上車、上車時間(小時))}\label{ux65b0ux589eux4f7fux7528ux8005ux7279ux5fb5ux63cfux8ff0ux6b04ux4f4dux65c5ux7a0bux6642ux9593ux661fux671fux5e7eux4e0aux8ecaux4e0aux8ecaux6642ux9593ux5c0fux6642}
+
+在完成資料補足的部分後，為在後
+續分析的方便進行，本研究於資料欄位中新增數個資料欄位，包括：旅程時間、星期幾上車、上車時間(小時)，此類使用者票證資料的旅行行為模式描述，
+
+\subsection{使用者行為特徵資料集}\label{ux4f7fux7528ux8005ux884cux70baux7279ux5fb5ux8cc7ux6599ux96c6}
+
+透過八大類使用者行為去描述使用者在公共運輸使用上的特性，主要目的是去找出每個使用者的旅次特性，
+
+\subsubsection{基本旅運統計行為特徵}\label{ux57faux672cux65c5ux904bux7d71ux8a08ux884cux70baux7279ux5fb5}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -27,7 +48,7 @@
   平均每日使用次數：avg\_trips\_per\_day
 \end{enumerate}
 
-\subsection{對稱行程特徵}\label{ux5c0dux7a31ux884cux7a0bux7279ux5fb5}
+\subsubsection{對稱行程特徵}\label{ux5c0dux7a31ux884cux7a0bux7279ux5fb5}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -38,7 +59,7 @@
   對稱行程比例：symmetry\_ratio
 \end{enumerate}
 
-\subsection{使用時間特徵}\label{ux4f7fux7528ux6642ux9593ux7279ux5fb5}
+\subsubsection{使用時間特徵}\label{ux4f7fux7528ux6642ux9593ux7279ux5fb5}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -55,7 +76,7 @@
   尖峰時間使用比率：peak\_hour\_ratio
 \end{enumerate}
 
-\subsection{距離特徵}\label{ux8dddux96e2ux7279ux5fb5}
+\subsubsection{距離特徵}\label{ux8dddux96e2ux7279ux5fb5}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -72,35 +93,72 @@
   搭乘距離標準差：std\_distance
 \end{enumerate}
 
-\subsection{時間熵特徵}\label{ux6642ux9593ux71b5ux7279ux5fb5}
+\subsubsection{時間熵特徵}\label{ux6642ux9593ux71b5ux7279ux5fb5}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\begin{itemize}
 \tightlist
 \item
-  一天中第一次行程的上車時間熵：first\_boarding\_entropy
+  首趟行程的上車時間熵：first\_boarding\_entropy
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(E_{\text{time, first}} = \frac{ -\sum_{i=0}^{23} P_{\text{first}, i} \log_2(P_{\text{first}, i}) }{ \log_2(24) }\)
+  \end{itemize}
 \item
-  一天中最後一次行程的上車時間熵：last\_boarding\_entropy
+  末趟行程的上車時間熵：last\_boarding\_entropy
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(E_{\text{time, last}} = \frac{ -\sum_{i=0}^{23} P_{\text{last}, i} \log_2(P_{\text{last}, i}) }{ \log_2(24) }\)
+  \end{itemize}
 \item
   平均的上車時間熵：avg\_boarding\_entropy
-\end{enumerate}
 
-\subsection{空間熵特徵}\label{ux7a7aux9593ux71b5ux7279ux5fb5}
+  \begin{itemize}
+  \tightlist
+  \item
+    \(E_{\text{time, avg}} = \frac{1}{2} \left( E_{\text{time, first}} + E_{\text{time, last}} \right)\)
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+    \begin{itemize}
+    \tightlist
+    \item
+      \(P_{first,i​}\)：每天首趟出發時間落在第 \(i\)
+      個小時（0到23）的機率。例如，若某人每天早上6點出發的機率是0.8，則
+      \(P_{first,6}=0.8\)。
+    \item
+      \(P_{last,i​}\)：每天末趟出發時間落在第 \(i\)
+      個小時（0到23）的機率。例如，若某人每天晚上10點出發的機率是0.7，則
+      \(P_{last,22}=0.7\)。
+    \item
+      \(log_2​(24)\)：正規化因子，用來將熵的值標準化到0到1的範圍內，因為一天有24個小時，\(log_2​(24)\)
+      是最大的可能熵值。
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{空間熵特徵}\label{ux7a7aux9593ux71b5ux7279ux5fb5}
+
+\begin{itemize}
 \tightlist
 \item
-  一天中第一次行程的上車地點熵：first\_boarding\_place\_entropy
+  首趟行程的上車地點熵：first\_boarding\_place\_entropy
 \item
-  一天中第一次行程的下車地點熵：first\_alighting\_place\_entropy
+  首趟行程的下車地點熵：first\_alighting\_place\_entropy
 \item
-  一天中最後一次行程的上車地點熵：last\_boarding\_place\_entropy
+  末趟行程的上車地點熵：last\_boarding\_place\_entropy
 \item
-  一天中最後一次行程的下車地點熵：last\_alighting\_place\_entropy
-\end{enumerate}
+  末趟行程的下車地點熵：last\_alighting\_place\_entropy
+\end{itemize}
 
-\subsection{轉乘特徵}\label{ux8f49ux4e58ux7279ux5fb5}
+\[E_{\text{place}} = 
+\begin{cases} 
+0 & \text{if } n_{\text{unique}} \leq 1 \\ 
+\frac{ -\sum_{a=1}^{n_{\text{unique}}} P_a \log_2(P_a) }{ \log_2(n_{\text{unique}}) } & \text{if } n_{\text{unique}} > 1 
+\end{cases}\]
+
+\subsubsection{轉乘特徵}\label{ux8f49ux4e58ux7279ux5fb5}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -119,7 +177,7 @@
   平均轉乘次數：avg\_transfer
 \end{enumerate}
 
-\subsection{活動站點特徵}\label{ux6d3bux52d5ux7ad9ux9edeux7279ux5fb5}
+\subsubsection{活動站點特徵}\label{ux6d3bux52d5ux7ad9ux9edeux7279ux5fb5}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -133,3 +191,11 @@
 \item
   一天中最後一次行程的下車地點個數：unique\_last\_alighting\_place
 \end{enumerate}
+
+\section{主成分分析(Principal Component Analysis,
+PCA)}\label{ux4e3bux6210ux5206ux5206ux6790principal-component-analysis-pca}
+
+主成分分析(Principal Component Analysis,
+PCA)，是為一種線性降維方法，主要目的在透過特徵值及特徵向量分解，將所有特徵分解成數個不相關的主成分方向，以達成降低資料維度的目的，
+
+\section{K-means++}\label{k-means}
