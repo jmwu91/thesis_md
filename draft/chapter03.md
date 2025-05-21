@@ -162,3 +162,7 @@ $$E_{\text{place}} =
 主成分分析(Principal Component Analysis, PCA)，是為一種線性降維方法，主要目的在透過特徵值及特徵向量分解，將所有特徵分解成數個不相關的主成分方向，以達成降低資料維度的目的，
 
 ## K-means++
+
+
+
+## 多項羅吉特模式 (Multinominal Logit Model, MNL)
