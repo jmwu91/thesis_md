@@ -166,3 +166,4 @@ $$E_{\text{place}} =
 
 
 ## 多項羅吉特模式 (Multinominal Logit Model, MNL)
+
