@@ -4,11 +4,7 @@
 
 ## 多元旅運整合服務 (Mobility as a Service, MaaS)
 
-
-
 ### MaaS 定義與整合
-
-
 
 根據過往文獻指出（Hietanen, 2014；Jittrapirom et al., 2017；Kamargianni et al., 2016；Wong, Hensher, & Mulley, 2020），多元旅運整合服務 (Mobility as a Service, MaaS) 為一種創新的都市運輸整合模式，其服務核心強調 "透過單一數位平台整合多元交通運具，提供使用者從行程規劃、預訂到付款的運輸整合服務" 。此概念相較過往以「擁有運具」為主的個人交通方式，轉向以「按需使用」為導向的服務型交通模式，其核心理念在於運具整合與以使用者為中心，期望能提供無縫、便利且個人化的出行體驗（Giesecke, Surakka, & Hakonen, 2016；Pickford & Chung, 2019）。MaaS 的實現依賴多項數位科技發展，包括智慧型手機、GPS、電子票證與支付系統、即時資訊處理技術等，這些技術構成 MaaS 平台運作的基礎條件（Nemtanu et al., 2016；He & Csiszár, 2020）。
 
